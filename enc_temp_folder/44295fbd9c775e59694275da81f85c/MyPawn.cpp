@@ -47,26 +47,15 @@ void AMyPawn::BeginPlay()
 	
 }
 
-void AMyPawn::Move(const FInputActionValue& Value)
-{
-	const float CurrentValue = Value.Get<float>();
-	if (Controller && (CurrentValue != 0.f))
-	{
-		FVector Forward = GetActorForwardVector();
-		AddMovementInput(Forward, CurrentValue);
-	}
-}
-
-void AMyPawn::Look(const FInputActionValue& Value)
-{
-	const FVector2D LookAxisValue = Value.Get<FVector2D>();
-
-	if (GetController())
-	{
-		AddControllerYawInput(LookAxisValue.X);
-		AddControllerPitchInput(LookAxisValue.Y);
-	}
-}
+//void AMyPawn::Move(const FInputActionValue& Value)
+//{
+//
+//}
+//
+//void AMyPawn::Look(const FInputActionValue& Value)
+//{
+//
+//}
 
 // Called every frame
 void AMyPawn::Tick(float DeltaTime)
@@ -79,14 +68,6 @@ void AMyPawn::Tick(float DeltaTime)
 void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	if (UEnhancedInputComponent* EnhancedInputComponent =
-		CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
-	{
-		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyPawn::Move);
-		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyPawn::Look);
-	}
-
 
 }
 
