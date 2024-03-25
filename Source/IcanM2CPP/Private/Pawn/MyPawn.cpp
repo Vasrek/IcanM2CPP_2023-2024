@@ -4,6 +4,9 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/InputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "EnhancedInputComponent.h"
 
 #include "Pawn/MyPawn.h"
 
@@ -34,7 +37,28 @@ AMyPawn::AMyPawn()
 void AMyPawn::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = 
+			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(BirdMappingContext, 0);
+		}
+	}
+
+
 	
+}
+
+void AMyPawn::Move(const FInputActionValue& Value)
+{
+
+}
+
+void AMyPawn::Look(const FInputActionValue& Value)
+{
+
 }
 
 // Called every frame
