@@ -3,6 +3,7 @@
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Components/SkeletalMeshComponent.h"
 
 #include "Pawn/MyPawn.h"
 
