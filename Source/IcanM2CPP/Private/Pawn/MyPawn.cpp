@@ -86,7 +86,5 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AMyPawn::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &AMyPawn::Look);
 	}
-
-
 }
 

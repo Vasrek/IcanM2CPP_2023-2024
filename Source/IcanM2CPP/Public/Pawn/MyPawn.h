@@ -31,6 +31,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	FORCEINLINE int getNbCheckpointPassed() const { return  nbCheckpointPassed; }
+	FORCEINLINE void setNbCheckpointPassed(int value) { nbCheckpointPassed = value; }
 
 protected:
 	// Called when the game starts or when spawned
@@ -48,6 +50,8 @@ protected:
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Checkpoint)
+	int nbCheckpointPassed = 0;
 
 private:
 	UPROPERTY(VisibleAnywhere)
