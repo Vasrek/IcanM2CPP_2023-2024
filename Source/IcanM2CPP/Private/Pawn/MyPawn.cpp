@@ -1,5 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+#include "Pawn/MyPawn.h"
 #include "Components/CapsuleComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
@@ -7,8 +6,6 @@
 #include "Components/InputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
-
-#include "Pawn/MyPawn.h"
 
 // Sets default values
 AMyPawn::AMyPawn()
@@ -40,8 +37,7 @@ void AMyPawn::BeginPlay()
 
 	if (APlayerController* PlayerController = Cast<APlayerController>(GetController()))
 	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = 
-			ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(BirdMappingContext, 0);
 		}
@@ -51,15 +47,15 @@ void AMyPawn::BeginPlay()
 	
 }
 
-void AMyPawn::Move(const FInputActionValue& Value)
-{
-
-}
-
-void AMyPawn::Look(const FInputActionValue& Value)
-{
-
-}
+//void AMyPawn::Move(const FInputActionValue& Value)
+//{
+//
+//}
+//
+//void AMyPawn::Look(const FInputActionValue& Value)
+//{
+//
+//}
 
 // Called every frame
 void AMyPawn::Tick(float DeltaTime)

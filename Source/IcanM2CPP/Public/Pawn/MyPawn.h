@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Pawn.h"
+#include "InputActionValue.h"
+
 #include "MyPawn.generated.h"
 
 class UCapsuleComponent; 
@@ -43,8 +45,8 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input);
 	UInputAction* LookAction;
 
-	void Move(const FInputActionValue& Value);
-	void Look(const FInputActionValue& Value);
+	//void Move(const FInputActionValue& Value);
+	//void Look(const FInputActionValue& Value);
 
 
 private:
